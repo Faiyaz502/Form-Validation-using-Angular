@@ -1,0 +1,174 @@
+ body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            padding: 2rem 0;
+            color: #e8eaed;
+        }
+        
+        .form-container {
+            background: rgba(30, 30, 50, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            padding: 3rem;
+            margin: 2rem 0;
+        }
+        
+        .form-title {
+            background: linear-gradient(45deg, #64b5f6, #9c27b0, #e91e63);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            color: #64b5f6;
+            border-bottom: 2px solid #64b5f6;
+            padding-bottom: 0.5rem;
+            margin: 2rem 0 1.5rem 0;
+        }
+        
+        .form-control, .form-select {
+            background-color: #2a2a3e;
+            border: 2px solid #404060;
+            border-radius: 10px;
+            color: #e8eaed;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control::placeholder {
+            color: #9aa0a6;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            background-color: #323248;
+            border-color: #64b5f6;
+            box-shadow: 0 0 0 0.2rem rgba(100, 181, 246, 0.25);
+            color: #e8eaed;
+        }
+        
+        .form-select option {
+            background-color: #2a2a3e;
+            color: #e8eaed;
+        }
+        
+        .form-check-input:checked {
+            background-color: #64b5f6;
+            border-color: #64b5f6;
+        }
+        
+        .form-check-input:focus {
+            border-color: #64b5f6;
+            box-shadow: 0 0 0 0.2rem rgba(100, 181, 246, 0.25);
+        }
+        
+        .form-check-label, .form-label {
+            color: #e8eaed;
+        }
+        
+        .btn-gradient {
+            background: linear-gradient(45deg, #64b5f6, #9c27b0, #e91e63);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(100, 181, 246, 0.3);
+            color: white;
+        }
+        
+        .btn-outline-secondary {
+            border-color: #64b5f6;
+            color: #64b5f6;
+        }
+        
+        .btn-outline-secondary:hover {
+            background-color: #64b5f6;
+            border-color: #64b5f6;
+            color: #1a1a2e;
+        }
+        
+        .btn-outline-info {
+            border-color: #9c27b0;
+            color: #9c27b0;
+        }
+        
+        .btn-outline-info:hover {
+            background-color: #9c27b0;
+            border-color: #9c27b0;
+            color: white;
+        }
+        
+        .input-group-text {
+            background: linear-gradient(45deg, #64b5f6, #9c27b0);
+            color: white;
+            border: none;
+        }
+        
+        .form-range::-webkit-slider-track {
+            background: #404060;
+        }
+        
+        .form-range::-webkit-slider-thumb {
+            background: #64b5f6;
+        }
+        
+        .form-range::-moz-range-track {
+            background: #404060;
+        }
+        
+        .form-range::-moz-range-thumb {
+            background: #64b5f6;
+            border: none;
+        }
+        
+        .text-muted {
+            color: #9aa0a6 !important;
+        }
+        
+        .text-primary {
+            color: #64b5f6 !important;
+        }
+        
+        /* Custom scrollbar for dark mode */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #404060;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64b5f6;
+        }
+        
+        /* File input styling for dark mode */
+        .form-control[type="file"]::-webkit-file-upload-button {
+            background: linear-gradient(45deg, #64b5f6, #9c27b0);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            margin-right: 10px;
+        }
+        
+        /* Color input for dark mode */
+        .form-control[type="color"] {
+            padding: 4px;
+            height: 38px;
+        }

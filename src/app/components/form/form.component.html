@@ -1,0 +1,487 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="form-container">
+                <h1 class="form-title display-4">
+                    <i class="fas fa-clipboard-list me-3"></i>
+                    Comprehensive Form Showcase
+                </h1>
+
+                <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                    <!-- Personal Information Section -->
+                    <h3 class="section-title">
+                        <i class="fas fa-user me-2"></i>
+                        Personal Information
+                    </h3>
+
+                    <div class="row my-3 ">
+                        <div class="col-md-6">
+                            <label for="firstName" class="form-label">First Name <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" formControlName="firstName" class="form-control" id="firstName"
+                                placeholder="Enter your first name">
+
+
+                            <div *ngIf="userForm.get('firstName')?.touched && userForm.get('firstName')?.invalid"
+                                class="text-danger">
+                                <small *ngIf="userForm.get('firstName')?.errors?.['required']">First name is
+                                    required.</small>
+                                <small *ngIf="userForm.get('firstName')?.errors?.['minlength']">Minimun 3 Character
+                                    Required</small>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-6">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" formControlName="lastName" id="lastName"
+                                placeholder="Enter your last name">
+
+                            <div *ngIf="userForm.get('lastName')?.touched && userForm.get('lastName')?.invalid"
+                                class="text-danger">
+                                <small *ngIf="userForm.get('lastName')?.errors?.['required']">Last name is
+                                    required.</small>
+                                <small *ngIf="userForm.get('lastName')?.errors?.['minlength']">Minimun 3 Character
+                                    Required</small>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row my-3 ">
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" formControlName="email" class="form-control" id="email"
+                                    placeholder="your.email@example.com">
+                            </div>
+                            <div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.invalid"
+                                class="text-danger">
+                                <small *ngIf="userForm.get('email')?.errors?.['required']">Email Address is
+                                    required.</small>
+                                <small *ngIf="userForm.get('email')?.errors?.['email']">Invalid Email Address</small>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                <input type="tel" formControlName="phone" class="form-control" id="phone"
+                                    placeholder="+1 (555) 123-4567">
+                            </div>
+                            <div *ngIf="userForm.get('phone')?.touched && userForm.get('phone')?.invalid"
+                                class="text-danger">
+                                <small *ngIf="userForm.get('phone')?.errors?.['required']">Phone Number is
+                                    required.</small>
+                                <small *ngIf="userForm.get('phone')?.errors?.['pattern']">Invalid Phone Number</small>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="birthdate" formControlName="birthDate" class="form-label">Date of Birth</label>
+                            <input type="date" formControlName="birthDate" class="form-control" id="birthdate">
+                            <div *ngIf="userForm.get('birthDate')?.touched && userForm.get('birthDate')?.invalid"
+                                class="text-danger">
+                                <small *ngIf="userForm.get('birthDate')?.errors?.['required']">Date of Birth is
+                                    required.</small>
+                                <small *ngIf="userForm.get('birthDate')?.errors?.['futureDate']">Date of Birth can't be
+                                    Future</small>
+                                <small *ngIf="userForm.get('birthDate')?.errors?.['underage']">You must be 18 Years
+                                    Old</small>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="birthtime" class="form-label">Birth Time</label>
+                            <input type="time" formControlName="birthTime" class="form-control" id="birthtime">
+                            <div *ngIf="userForm.get('birthTime')?.touched && userForm.get('birthTime')?.invalid"
+                                class="text-danger">
+                                <small *ngIf="userForm.get('birthTime')?.errors?.['required']">Birth Time is
+                                    required.</small>
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="number" formControlName="age" class="form-control" id="age" min="1" max="120"
+                                placeholder="Enter Age">
+                            <div *ngIf="userForm.get('age')?.touched && userForm.get('age')?.invalid"
+                                class="text-danger">
+                                <small *ngIf="userForm.get('age')?.errors?.['required']">Age is
+                                    required.</small>
+                                <small *ngIf="userForm.get('age')?.errors?.['min']">You must be 18 Years
+                                    Old</small>
+                                <small *ngIf="userForm.get('age')?.errors?.['max']">Invalid Age</small>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" formControlName="password" class="form-control" id="password"
+                                placeholder="Create a strong password">
+                            <div *ngIf="userForm.get('password')?.touched && userForm.get('password')?.invalid"
+                                class="text-danger">
+                                <small *ngIf="userForm.get('password')?.errors?.['required']">Password is
+                                    required.</small>
+                                <small *ngIf="userForm.get('password')?.errors?.['min']">Password must be 8
+                                    Digit</small>
+                                <small *ngIf="userForm.get('password')?.errors?.['pattern']">Use Combination of Number &
+                                    Digit</small>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="website" class="form-label">Website/Portfolio</label>
+                            <input type="url" class="form-control" formControlName="link" id="website"
+                                placeholder="https://www.yourwebsite.com">
+                            <div *ngIf="userForm.get('link')?.touched && userForm.get('link')?.invalid"
+                                class="text-danger">
+
+                                <small *ngIf="userForm.get('link')?.errors?.['pattern']">Invalid Link Address</small>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Address Information -->
+                    <h3 class="section-title">
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        Address Information
+                    </h3>
+
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Street Address</label>
+                        <input type="text" formControlName="address" class="form-control" id="address"
+                            placeholder="123 Main Street, Apartment 4B">
+                        <div *ngIf="userForm.get('address')?.touched && userForm.get('address')?.invalid"
+                            class="text-danger">
+                            <small *ngIf="userForm.get('address')?.errors?.['required']">Street Address is
+                                required.</small>
+
+
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" formControlName="city" class="form-control" id="city"
+                                placeholder="New York">
+                            <div *ngIf="userForm.get('city')?.touched && userForm.get('city')?.invalid"
+                                class="text-danger">
+                                <small *ngIf="userForm.get('city')?.errors?.['required']">City is
+                                    required.</small>
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="state" class="form-label">State/Province</label>
+                            <select formControlName="state" class="form-select" id="state">
+                                <option selected>Choose...</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                            </select>
+
+                            <div *ngIf="userForm.get('state')?.touched && userForm.get('state')?.invalid"
+                                class="text-danger">
+                                <small *ngIf="userForm.get('state')?.errors?.['required']">State/Province is
+                                    required.</small>
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="zip" class="form-label">ZIP Code</label>
+                            <input type="text" formControlName="zip" class="form-control" id="zip" placeholder="12345">
+                            <div *ngIf="userForm.get('zip')?.touched && userForm.get('zip')?.invalid"
+                                class="text-danger">
+                                <small *ngIf="userForm.get('zip')?.errors?.['required']">ZIP Code is
+                                    required.</small>
+                                <small *ngIf="userForm.get('zip')?.errors?.['pattern']">ZIP Code must be in 6
+                                    Digit</small>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Country</label>
+                        <select class="form-select" formControlName="country" id="country">
+                            <option selected>Select Country</option>
+                            <option value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="AU">Australia</option>
+                            <option value="DE">Germany</option>
+                            <option value="FR">France</option>
+                            <option value="JP">Japan</option>
+                            <option value="CN">China</option>
+                            <option value="IN">India</option>
+                            <option value="BR">Brazil</option>
+                        </select>
+                        <div *ngIf="userForm.get('country')?.touched && userForm.get('country')?.invalid"
+                            class="text-danger">
+                            <small *ngIf="userForm.get('country')?.errors?.['required']">Country is
+                                required.</small>
+
+
+                        </div>
+                    </div>
+
+                    <!-- Preferences & Choices -->
+                    <h3 class="section-title">
+                        <i class="fas fa-sliders-h me-2"></i>
+                        Preferences & Choices
+                    </h3>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Gender</label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" formControlName="gender" name="gender"
+                                        id="male" value="male">
+                                    <label class="form-check-label" for="male">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" formControlName="gender" type="radio" name="gender"
+                                        id="female" value="female">
+                                    <label class="form-check-label" for="female">Female</label>
+                                </div>
+                                <div *ngIf="userForm.get('gender')?.touched && userForm.get('gender')?.invalid"
+                                    class="text-danger">
+                                    <small>Gender is required.</small>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="favoriteColor" class="form-label">Favorite Color</label>
+                            <input type="color" formControlName="color" class="form-control form-control-color"
+                                id="favoriteColor" value="#64b5f6" title="Choose your favorite color">
+                            <div *ngIf="userForm.get('color')?.touched && userForm.get('color')?.invalid"
+                                class="text-danger">
+                                <small>Favorite Color is required.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="salary" class="form-label">Expected Salary Range</label>
+                            <input type="range" formControlName="salary" class="form-range" id="salary" step="5000"
+                                value="75000">
+                            <div class="d-flex justify-content-between small text-muted">
+                                <span>$20k</span>
+                                <span>$110k</span>
+                                <span>$200k</span>
+                            </div>
+                            <div *ngIf="userForm.get('salary')?.touched && userForm.get('salary')?.invalid"
+                                class="text-danger">
+                                <small *ngIf="userForm.get('salary')?.errors?.['required']">Salary is
+                                    required.</small>
+                                <small *ngIf="userForm.get('salary')?.errors?.['min']">Salary must be more than
+                                    20,000</small>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="experience" class="form-label">Years of Experience</label>
+                            <input type="number" formControlName="exp" class="form-control" id="experience" min="0"
+                                max="50" step="0.5" placeholder="">
+                            <div *ngIf="userForm.get('exp')?.touched && userForm.get('exp')?.invalid"
+                                class="text-danger">
+                                <small *ngIf="userForm.get('exp')?.errors?.['required']">Experience is
+                                    required.</small>
+                                <small *ngIf="userForm.get('exp')?.errors?.['max']">Invalid Experience</small>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Skills & Interests (Multiple Selection)</label>
+                        <div class="row">
+                            <div class="col-md-3" *ngFor="let col of [0,1,2,3]">
+
+                                <div class="form-check" *ngFor="let skill of skills.slice(col*3, col*3 + 3)">
+                                    <input class="form-check-input" type="checkbox" [value]="skill"
+                                        (change)="onCheckboxChange($event)" [id]="skill">
+                                    <label class="form-check-label" [for]="skill">{{ skill }}</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 mt-2">
+                                <div *ngIf="expFormArray.touched && expFormArray.errors?.['minSelected']"
+                                    class="text-danger" style="min-height:1.2em;">
+                                    <small>Please select at least Three skill</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Files & Documents -->
+                    <h3 class="section-title">
+                        <i class="fas fa-file-upload me-2"></i>
+                        Files & Documents
+                    </h3>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="resume" class="form-label">Upload Resume/CV</label>
+                            <input type="file" class="form-control" id="resume" accept=".pdf,.doc,.docx"
+                                (change)="onFileChange($event, 'cv')">
+                            <div *ngIf="userForm.get('cv')?.touched && userForm.get('cv')?.invalid" class="text-danger">
+                                <small *ngIf="userForm.get('cv')?.errors?.['required']">Resume is required.</small>
+                                <small *ngIf="userForm.get('cv')?.errors?.['fileType']">Only PDF, DOC, DOCX
+                                    allowed.</small>
+                                <small *ngIf="userForm.get('cv')?.errors?.['maxSize']">File must be less than
+                                    2MB.</small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="portfolio" class="form-label">Portfolio Files</label>
+                            <input type="file" class="form-control" id="portfolio" multiple
+                                (change)="onFileChange($event, 'portfolio')">
+                            <div *ngIf="userForm.get('portfolio')?.touched && userForm.get('portfolio')?.invalid"
+                                class="text-danger">
+                                <small *ngIf="userForm.get('portfolio')?.errors?.['required']">Portfolio is
+                                    required.</small>
+                                <small *ngIf="userForm.get('portfolio')?.errors?.['fileType']">Invalid file type
+                                    detected.</small>
+                                <small *ngIf="userForm.get('portfolio')?.errors?.['maxSize']">Some files exceed
+                                    2MB.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="avatar" class="form-label">Profile Picture</label>
+                        <input type="file" class="form-control" id="avatar" accept="image/*">
+                    </div>
+
+                    <!-- Additional Information -->
+                    <h3 class="section-title">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Additional Information
+                    </h3>
+
+
+
+                    <div class="mb-3">
+                        <label for="bio" class="form-label">Biography / About You</label>
+                        <textarea class="form-control" id="bio" rows="4"
+                            placeholder="Tell us about yourself, your experience, and what makes you unique..."></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="motivation" class="form-label">What motivates you?</label>
+                        <textarea class="form-control" id="motivation" rows="3"
+                            placeholder="Share what drives you and your career goals..."></textarea>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="priority" class="form-label">Priority Level</label>
+                            <select class="form-select" id="priority">
+                                <option selected>Select Priority</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                                <option value="urgent">Urgent</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="referral" class="form-label">How did you hear about us?</label>
+                            <select class="form-select" id="referral">
+                                <option selected>Select an option</option>
+                                <option value="google">Google Search</option>
+                                <option value="social">Social Media</option>
+                                <option value="friend">Friend/Colleague</option>
+                                <option value="advertisement">Advertisement</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Agreement & Terms -->
+                    <h3 class="section-title">
+                        <i class="fas fa-handshake me-2"></i>
+                        Agreement & Terms
+                    </h3>
+
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="newsletter">
+                            <label class="form-check-label" for="newsletter">
+                                Subscribe to our newsletter for updates and opportunities
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="terms">
+                            <label class="form-check-label" for="terms">
+                                I agree to the Terms and Conditions and Privacy Policy
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="marketing">
+                            <label class="form-check-label" for="marketing">
+                                I consent to receive marketing communications
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Fields -->
+                    <input type="hidden" id="timestamp" name="timestamp" value="">
+                    <input type="hidden" id="source" name="source" value="comprehensive-form">
+
+                    <!-- Submit Buttons -->
+                    <div class="text-center mt-4">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <button type="submit" class="btn btn-gradient btn-lg me-md-2">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Submit Application
+                            </button>
+                            <button type="reset" class="btn btn-outline-secondary btn-lg">
+                                <i class="fas fa-redo me-2"></i>
+                                Reset Form
+                            </button>
+                            <button type="button" class="btn btn-outline-info btn-lg">
+                                <i class="fas fa-save me-2"></i>
+                                Save as Draft
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
