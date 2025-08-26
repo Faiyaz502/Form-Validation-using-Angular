@@ -39,7 +39,7 @@
                             <input type="text" class="form-control" formControlName="lastName" id="lastName"
                                 placeholder="Enter your last name">
 
-                            <div *ngIf="userForm.get('lastName')?.touched && userForm.get('lastName')?.invalid"
+                            <div *ngIf="submitted && userForm.get('lastName')?.touched  && userForm.get('lastName')?.invalid"
                                 class="text-danger">
                                 <small *ngIf="userForm.get('lastName')?.errors?.['required']">Last name is
                                     required.</small>
@@ -61,7 +61,7 @@
                                 <input type="email" formControlName="email" class="form-control" id="email"
                                     placeholder="your.email@example.com">
                             </div>
-                            <div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.invalid"
+                            <div *ngIf="submitted && userForm.get('email')?.touched && userForm.get('email')?.invalid"
                                 class="text-danger">
                                 <small *ngIf="userForm.get('email')?.errors?.['required']">Email Address is
                                     required.</small>
@@ -74,9 +74,9 @@
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                 <input type="tel" formControlName="phone" class="form-control" id="phone"
-                                    placeholder="+1 (555) 123-4567">
+                                    placeholder="">
                             </div>
-                            <div *ngIf="userForm.get('phone')?.touched && userForm.get('phone')?.invalid"
+                            <div *ngIf=" submitted && userForm.get('phone')?.touched && userForm.get('phone')?.invalid"
                                 class="text-danger">
                                 <small *ngIf="userForm.get('phone')?.errors?.['required']">Phone Number is
                                     required.</small>
@@ -90,7 +90,7 @@
                         <div class="col-md-4">
                             <label for="birthdate" formControlName="birthDate" class="form-label">Date of Birth</label>
                             <input type="date" formControlName="birthDate" class="form-control" id="birthdate">
-                            <div *ngIf="userForm.get('birthDate')?.touched && userForm.get('birthDate')?.invalid"
+                            <div *ngIf="submitted && userForm.get('birthDate')?.touched && userForm.get('birthDate')?.invalid"
                                 class="text-danger">
                                 <small *ngIf="userForm.get('birthDate')?.errors?.['required']">Date of Birth is
                                     required.</small>
@@ -104,7 +104,7 @@
                         <div class="col-md-4">
                             <label for="birthtime" class="form-label">Birth Time</label>
                             <input type="time" formControlName="birthTime" class="form-control" id="birthtime">
-                            <div *ngIf="userForm.get('birthTime')?.touched && userForm.get('birthTime')?.invalid"
+                            <div *ngIf="submitted &&  userForm.get('birthTime')?.touched && userForm.get('birthTime')?.invalid"
                                 class="text-danger">
                                 <small *ngIf="userForm.get('birthTime')?.errors?.['required']">Birth Time is
                                     required.</small>
@@ -116,7 +116,7 @@
                             <label for="age" class="form-label">Age</label>
                             <input type="number" formControlName="age" class="form-control" id="age" min="1" max="120"
                                 placeholder="Enter Age">
-                            <div *ngIf="userForm.get('age')?.touched && userForm.get('age')?.invalid"
+                            <div *ngIf="submitted && userForm.get('age')?.touched && userForm.get('age')?.invalid"
                                 class="text-danger">
                                 <small *ngIf="userForm.get('age')?.errors?.['required']">Age is
                                     required.</small>
@@ -133,7 +133,7 @@
                             <label for="password" class="form-label">Password</label>
                             <input type="password" formControlName="password" class="form-control" id="password"
                                 placeholder="Create a strong password">
-                            <div *ngIf="userForm.get('password')?.touched && userForm.get('password')?.invalid"
+                            <div *ngIf="submitted && userForm.get('password')?.touched && userForm.get('password')?.invalid"
                                 class="text-danger">
                                 <small *ngIf="userForm.get('password')?.errors?.['required']">Password is
                                     required.</small>
@@ -148,7 +148,7 @@
                             <label for="website" class="form-label">Website/Portfolio</label>
                             <input type="url" class="form-control" formControlName="link" id="website"
                                 placeholder="https://www.yourwebsite.com">
-                            <div *ngIf="userForm.get('link')?.touched && userForm.get('link')?.invalid"
+                            <div *ngIf="submitted && userForm.get('link')?.touched && userForm.get('link')?.invalid"
                                 class="text-danger">
 
                                 <small *ngIf="userForm.get('link')?.errors?.['pattern']">Invalid Link Address</small>
@@ -167,7 +167,7 @@
                         <label for="address" class="form-label">Street Address</label>
                         <input type="text" formControlName="address" class="form-control" id="address"
                             placeholder="123 Main Street, Apartment 4B">
-                        <div *ngIf="userForm.get('address')?.touched && userForm.get('address')?.invalid"
+                        <div *ngIf="submitted && userForm.get('address')?.touched && userForm.get('address')?.invalid"
                             class="text-danger">
                             <small *ngIf="userForm.get('address')?.errors?.['required']">Street Address is
                                 required.</small>
@@ -181,7 +181,7 @@
                             <label for="city" class="form-label">City</label>
                             <input type="text" formControlName="city" class="form-control" id="city"
                                 placeholder="New York">
-                            <div *ngIf="userForm.get('city')?.touched && userForm.get('city')?.invalid"
+                            <div *ngIf="submitted && userForm.get('city')?.touched && userForm.get('city')?.invalid"
                                 class="text-danger">
                                 <small *ngIf="userForm.get('city')?.errors?.['required']">City is
                                     required.</small>
@@ -205,7 +205,7 @@
                                 <option value="GA">Georgia</option>
                             </select>
 
-                            <div *ngIf="userForm.get('state')?.touched && userForm.get('state')?.invalid"
+                            <div *ngIf="submitted && userForm.get('state')?.touched && userForm.get('state')?.invalid"
                                 class="text-danger">
                                 <small *ngIf="userForm.get('state')?.errors?.['required']">State/Province is
                                     required.</small>
@@ -216,7 +216,7 @@
                         <div class="col-md-3">
                             <label for="zip" class="form-label">ZIP Code</label>
                             <input type="text" formControlName="zip" class="form-control" id="zip" placeholder="12345">
-                            <div *ngIf="userForm.get('zip')?.touched && userForm.get('zip')?.invalid"
+                            <div *ngIf="submitted && userForm.get('zip')?.touched && userForm.get('zip')?.invalid"
                                 class="text-danger">
                                 <small *ngIf="userForm.get('zip')?.errors?.['required']">ZIP Code is
                                     required.</small>
@@ -231,7 +231,7 @@
                     <div class="mb-3">
                         <label for="country" class="form-label">Country</label>
                         <select class="form-select" formControlName="country" id="country">
-                            <option selected>Select Country</option>
+                            <option value="" disabled selected>Select Country</option>
                             <option value="US">United States</option>
                             <option value="CA">Canada</option>
                             <option value="UK">United Kingdom</option>
@@ -243,7 +243,7 @@
                             <option value="IN">India</option>
                             <option value="BR">Brazil</option>
                         </select>
-                        <div *ngIf="userForm.get('country')?.touched && userForm.get('country')?.invalid"
+                        <div *ngIf="submitted && userForm.get('country')?.touched && userForm.get('country')?.invalid"
                             class="text-danger">
                             <small *ngIf="userForm.get('country')?.errors?.['required']">Country is
                                 required.</small>
@@ -272,7 +272,7 @@
                                         id="female" value="female">
                                     <label class="form-check-label" for="female">Female</label>
                                 </div>
-                                <div *ngIf="userForm.get('gender')?.touched && userForm.get('gender')?.invalid"
+                                <div *ngIf="submitted && userForm.get('gender')?.touched && userForm.get('gender')?.invalid"
                                     class="text-danger">
                                     <small>Gender is required.</small>
                                 </div>
@@ -291,38 +291,25 @@
                         </div>
                     </div>
 
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="salary" class="form-label">Expected Salary Range</label>
-                            <input type="range" formControlName="salary" class="form-range" id="salary" step="5000"
-                                value="75000">
-                            <div class="d-flex justify-content-between small text-muted">
-                                <span>$20k</span>
-                                <span>$110k</span>
-                                <span>$200k</span>
-                            </div>
-                            <div *ngIf="userForm.get('salary')?.touched && userForm.get('salary')?.invalid"
-                                class="text-danger">
-                                <small *ngIf="userForm.get('salary')?.errors?.['required']">Salary is
-                                    required.</small>
-                                <small *ngIf="userForm.get('salary')?.errors?.['min']">Salary must be more than
-                                    20,000</small>
+                    <div class="col-md-6">
+                        <label for="salary" class="form-label">Expected Salary Range: ${{ salaryValue | number
+                            }}</label>
+                        <input type="range" formControlName="salary" class="form-range" id="salary" min="20000"
+                            max="200000" step="5000">
 
-                            </div>
+                        <div class="d-flex justify-content-between small text-muted">
+                            <span>$20k</span>
+                            <span>$110k</span>
+                            <span>$200k</span>
                         </div>
-                        <div class="col-md-6">
-                            <label for="experience" class="form-label">Years of Experience</label>
-                            <input type="number" formControlName="exp" class="form-control" id="experience" min="0"
-                                max="50" step="0.5" placeholder="">
-                            <div *ngIf="userForm.get('exp')?.touched && userForm.get('exp')?.invalid"
-                                class="text-danger">
-                                <small *ngIf="userForm.get('exp')?.errors?.['required']">Experience is
-                                    required.</small>
-                                <small *ngIf="userForm.get('exp')?.errors?.['max']">Invalid Experience</small>
 
-                            </div>
+                        <div *ngIf="submitted && userForm.get('salary')?.invalid" class="text-danger">
+                            <small *ngIf="userForm.get('salary')?.errors?.['required']">Salary is required.</small>
+                            <small *ngIf="userForm.get('salary')?.errors?.['min']">Salary must be more than
+                                $20,000</small>
                         </div>
                     </div>
+                    >
 
                     <div class="mb-3">
                         <label class="form-label">Skills & Interests (Multiple Selection)</label>
@@ -338,7 +325,7 @@
 
 
                             <div class="col-12 mt-2">
-                                <div *ngIf="expFormArray.touched && expFormArray.errors?.['minSelected']"
+                                <div *ngIf="submitted && expFormArray.touched && expFormArray.errors?.['minSelected']"
                                     class="text-danger" style="min-height:1.2em;">
                                     <small>Please select at least Three skill</small>
                                 </div>
@@ -358,7 +345,8 @@
                             <label for="resume" class="form-label">Upload Resume/CV</label>
                             <input type="file" class="form-control" id="resume" accept=".pdf,.doc,.docx"
                                 (change)="onFileChange($event, 'cv')">
-                            <div *ngIf="userForm.get('cv')?.touched && userForm.get('cv')?.invalid" class="text-danger">
+                            <div *ngIf="submitted && userForm.get('cv')?.touched && userForm.get('cv')?.invalid"
+                                class="text-danger">
                                 <small *ngIf="userForm.get('cv')?.errors?.['required']">Resume is required.</small>
                                 <small *ngIf="userForm.get('cv')?.errors?.['fileType']">Only PDF, DOC, DOCX
                                     allowed.</small>
@@ -371,7 +359,7 @@
                             <label for="portfolio" class="form-label">Portfolio Files</label>
                             <input type="file" class="form-control" id="portfolio" multiple
                                 (change)="onFileChange($event, 'portfolio')">
-                            <div *ngIf="userForm.get('portfolio')?.touched && userForm.get('portfolio')?.invalid"
+                            <div *ngIf="submitted && userForm.get('portfolio')?.touched && userForm.get('portfolio')?.invalid"
                                 class="text-danger">
                                 <small *ngIf="userForm.get('portfolio')?.errors?.['required']">Portfolio is
                                     required.</small>
@@ -383,10 +371,6 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="avatar" class="form-label">Profile Picture</label>
-                        <input type="file" class="form-control" id="avatar" accept="image/*">
-                    </div>
 
                     <!-- Additional Information -->
                     <h3 class="section-title">
@@ -398,39 +382,85 @@
 
                     <div class="mb-3">
                         <label for="bio" class="form-label">Biography / About You</label>
-                        <textarea class="form-control" id="bio" rows="4"
-                            placeholder="Tell us about yourself, your experience, and what makes you unique..."></textarea>
+                        <textarea class="form-control" id="bio" rows="4" formControlName="bio"
+                            placeholder="Tell us about yourself, your experience, and what makes you unique...">
+    </textarea>
+
+                        <!-- Validation -->
+                        <div *ngIf="submitted && userForm.get('bio')?.touched && userForm.get('bio')?.invalid"
+                            class="text-danger mt-1">
+                            <small *ngIf="userForm.get('bio')?.errors?.['required']">Biography is required.</small>
+                            <small *ngIf="userForm.get('bio')?.errors?.['minlength']">Minimum 10 characters
+                                required.</small>
+                        </div>
+                        <!-- Character Counter -->
+                        <div class="text-muted small">
+                            {{ userForm.get('bio')?.value?.length || 0 }}/10 characters
+                        </div>
                     </div>
 
+                    <!-- Motivation -->
                     <div class="mb-3">
                         <label for="motivation" class="form-label">What motivates you?</label>
-                        <textarea class="form-control" id="motivation" rows="3"
-                            placeholder="Share what drives you and your career goals..."></textarea>
+                        <textarea class="form-control" id="motivation" rows="3" formControlName="motivate"
+                            placeholder="Share what drives you and your career goals...">
+    </textarea>
+
+                        <!-- Validation -->
+                        <div *ngIf="submitted && userForm.get('motivate')?.touched && userForm.get('motivate')?.invalid"
+                            class="text-danger mt-1">
+                            <small *ngIf="userForm.get('motivate')?.errors?.['required']">Motivation is
+                                required.</small>
+                            <small *ngIf="userForm.get('motivate')?.errors?.['minlength']">Minimum 10 characters
+                                required.</small>
+                        </div>
+                        <!-- Character Counter -->
+                        <div class="text-muted small">
+                            {{ userForm.get('motivate')?.value?.length || 0 }}/10 characters
+                        </div>
                     </div>
 
+                    <!-- Priority -->
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="priority" class="form-label">Priority Level</label>
-                            <select class="form-select" id="priority">
-                                <option selected>Select Priority</option>
+                            <select class="form-select" id="priority" formControlName="priority">
+                                <option value="" disabled>Select Priority</option>
                                 <option value="low">Low</option>
                                 <option value="medium">Medium</option>
                                 <option value="high">High</option>
                                 <option value="urgent">Urgent</option>
                             </select>
+
+                            <!-- Validation -->
+                            <div *ngIf="submitted && userForm.get('priority')?.touched && userForm.get('priority')?.invalid"
+                                class="text-danger mt-1">
+                                <small *ngIf="userForm.get('priority')?.errors?.['required']">Priority is
+                                    required.</small>
+                            </div>
                         </div>
+
+                        <!-- Referral -->
                         <div class="col-md-6">
                             <label for="referral" class="form-label">How did you hear about us?</label>
-                            <select class="form-select" id="referral">
-                                <option selected>Select an option</option>
+                            <select class="form-select" id="referral" formControlName="aboutUs">
+                                <option value="" disabled>Select an option</option>
                                 <option value="google">Google Search</option>
                                 <option value="social">Social Media</option>
                                 <option value="friend">Friend/Colleague</option>
                                 <option value="advertisement">Advertisement</option>
                                 <option value="other">Other</option>
                             </select>
+
+                            <!-- Validation -->
+                            <div *ngIf="submitted && userForm.get('aboutUs')?.touched && userForm.get('aboutUs')?.invalid"
+                                class="text-danger mt-1">
+                                <small *ngIf="userForm.get('aboutUs')?.errors?.['required']">This field is
+                                    required.</small>
+                            </div>
                         </div>
                     </div>
+
 
                     <!-- Agreement & Terms -->
                     <h3 class="section-title">
@@ -440,28 +470,42 @@
 
                     <div class="mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="newsletter">
+                            <input class="form-check-input" type="checkbox" id="newsletter" formControlName="subscribe">
                             <label class="form-check-label" for="newsletter">
                                 Subscribe to our newsletter for updates and opportunities
                             </label>
+                            <div *ngIf="submitted && userForm.get('subscribe')?.touched && userForm.get('subscribe')?.invalid"
+                                class="text-danger">
+                                <small>You must Subscribe .</small>
+                            </div>
+
+
+
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="terms">
+                            <input class="form-check-input" type="checkbox" id="terms" formControlName="agree">
                             <label class="form-check-label" for="terms">
                                 I agree to the Terms and Conditions and Privacy Policy
                             </label>
+                            <div *ngIf="submitted && userForm.get('agree')?.touched && userForm.get('agree')?.invalid"
+                                class="text-danger">
+                                <small>You must agree to the Terms and Conditions.</small>
+                            </div>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="marketing">
+                            <input class="form-check-input" type="checkbox" id="marketing" formControlName="consent">
                             <label class="form-check-label" for="marketing">
                                 I consent to receive marketing communications
                             </label>
+                            <div *ngIf="submitted && userForm.get('consent')?.touched && userForm.get('consent')?.invalid"
+                                class="text-danger">
+                                <small>You must Consent the Rules and Regulations </small>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Hidden Fields -->
-                    <input type="hidden" id="timestamp" name="timestamp" value="">
-                    <input type="hidden" id="source" name="source" value="comprehensive-form">
+
+
 
                     <!-- Submit Buttons -->
                     <div class="text-center mt-4">
@@ -474,7 +518,7 @@
                                 <i class="fas fa-redo me-2"></i>
                                 Reset Form
                             </button>
-                            <button type="button" class="btn btn-outline-info btn-lg">
+                            <button type="" (click)="saveAsDraft()" class="btn btn-outline-info btn-lg">
                                 <i class="fas fa-save me-2"></i>
                                 Save as Draft
                             </button>
